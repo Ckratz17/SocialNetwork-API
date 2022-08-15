@@ -1,9 +1,17 @@
 //models
+const { User, Thought } = require('../models/User')
 
-//controllers
+module.exports = {
+    getThought(req, res) {
+        Thought.find({})
+          .then((thought) => res.json(thought))
+          .catch((err) => res.status(500).json(err))
+    },
 
-//get all thoughts
-    //though.find
+
+}
+
+
 
 //get a single thought by id
     //thought.findOne

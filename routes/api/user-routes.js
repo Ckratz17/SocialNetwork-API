@@ -1,6 +1,1 @@
-//router from express
-
-// const {
-//all of your user controllers
-  
-// }
+const router = require('express').Router()
