@@ -1,6 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 
-const reactionSchema = new mongoose.Schema({
+const reactionSchema = new Schema({
     reactionId: { type: Schema.Types.ObjectId, default: () => new Types.ObjectId() },
     reactionBody: { type: String, required: true, max: 280, },
     username: { type: String, required: true, },
@@ -14,7 +14,7 @@ const reactionSchema = new mongoose.Schema({
       id: false,
 })
 
-const thoughtSchema = new mongoose.Schema({
+const thoughtSchema = new Schema({
     thoughtText: { type: String, required: true, min: 1, max: 280, },
     createdAt: { type: Date, default: Date.now, get: createdAtVal => moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a") },
     username: { type: String, required: true, },

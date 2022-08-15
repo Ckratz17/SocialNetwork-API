@@ -7,7 +7,7 @@ module.exports = {
           .then((user) => res.json(user))
           .catch((err) => res.status(500).json(err))
     },
-//get single user by id
+    //get single user by id
     getSingleUser(req, res) {
         //User.findOne
         User.findOne({_id: req.params.userId })
@@ -20,16 +20,15 @@ module.exports = {
           )
           .catch((err) => res.status(500).json(err))
     },
-//create a new user
-    getNewUser(req, res) {
-    //user.create
+    //create a new user
+    createUser(req, res) {
         User.create(req.body)
-        .then((user) => res.json(user))
-        .catch((err) => res.status(500).json(err))
+          .then((user) => res.json(user))
+          .catch((err) => res.status(500).json(err));
     },
-//update a user
+    //update a user
     updateUser(req, res) {
-    //user.findOneAndUpdate
+      //user.findOneAndUpdate
         User.findOneAndUpdate(
             { _id: req.params.userId },
             //$set- set the req.body
@@ -48,8 +47,8 @@ module.exports = {
       });
     },
 
-//delete a user
-//Bonus**REMOVE A USER'S THOUGHTS WHEN DELETED
+    //delete a user
+    //Bonus**REMOVE A USER'S THOUGHTS WHEN DELETED
     deleteUser(req, res) {
         User.findOneAndDelete({ _id: req.params.userId})
           .then((user) =>
@@ -61,7 +60,7 @@ module.exports = {
           .catch((err) => res.status(500).json(err))
     },
 
-//add a friend
+    //add a friend
     addFriend(req, res) {
         User.findOneAndUpdate(
             {_id: req.params.userId },
@@ -76,7 +75,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
     },
 
-//delete a friend
+    //delete a friend
     deleteFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
@@ -91,5 +90,3 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
     },
 }
-
-    
