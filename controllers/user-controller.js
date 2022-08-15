@@ -15,6 +15,7 @@ module.exports = {
       .populate("friends")
       //populate 'thoughts to gget thought data
       .populate("thoughts")
+      .select('-__v')
       .then((user) => !user ? res.status(404).json({ message: 'No user with that id found!' })
         : res.json(user)
       )
