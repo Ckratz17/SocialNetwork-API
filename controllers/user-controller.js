@@ -11,15 +11,16 @@ module.exports = {
   getSingleUser(req, res) {
     //User.findOne
     User.findOne({ _id: req.params.userId })
-      //populate 'friends' to get friend data  
-      .populate("friends")
-      //populate 'thoughts to gget thought data
       .populate("thoughts")
+      .populate("friends")
       .select('-__v')
       .then((user) => !user ? res.status(404).json({ message: 'No user with that id found!' })
         : res.json(user)
       )
-      .catch((err) => res.status(500).json(err))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
   //create a new user
   createUser(req, res) {
@@ -71,9 +72,12 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No video with this id!' })
-          : res.json(video)
+          : res.json(user)
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
 
   //delete a friend
@@ -86,8 +90,11 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No video with this id!' })
-          : res.json(video)
+          : res.json(user)
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
 }

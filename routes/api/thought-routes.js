@@ -10,7 +10,10 @@ const {
     createReaction
 } = require('../../controllers/thought-controller')
 
-router.route('').get(getThought).post(createThought)
+router.
+  route('/')
+  .get(getThought)
+  .post(createThought)
 
 router
   .route('/:thoughtId')

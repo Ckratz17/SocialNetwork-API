@@ -4,7 +4,10 @@ module.exports = {
     getThought(req, res) {
         Thought.find({})
             .then((thought) => res.json(thought))
-            .catch((err) => res.status(500).json(err))
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+              });
     },
 
     getSingleThought(req, res) {
@@ -14,7 +17,10 @@ module.exports = {
                     ? res.status(404).json({ message: 'No thought found with that id' })
                     : res.json(thought)
             )
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+              });
     },
 
     createThought(req, res) {
@@ -28,10 +34,13 @@ module.exports = {
             })
             .then((thought) =>
                 !thought
-                    ? res.status(404).json({ message: 'No thought found with that id' })
+                    ? res.status(404).json({ message: 'No User found with that id' })
                     : res.json(thought)
             )
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+              });
     },
 
     updateThought(req, res) {
@@ -45,7 +54,10 @@ module.exports = {
                     ? res.status(404).json({ message: 'No thought found with that id' })
                     : res.json(user)
             )
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+              });
     },
 
     deleteThought(req, res) {
@@ -64,7 +76,10 @@ module.exports = {
                     ? res.status(404).json({ message: 'No thought found with that id' })
                     : res.json(user)
             )
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+              });
     },
 
     createReaction(req, res) {
@@ -78,7 +93,10 @@ module.exports = {
                     ? res.status(404).json({ message: 'No thought found with that id' })
                     : res.json(user)
             )
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+              });
     },
 
     deleteReaction(req, res) {
@@ -92,7 +110,10 @@ module.exports = {
                     ? res.status(404).json({ message: 'No thought found with that id' })
                     : res.json(user)
             )
-            .catch((err) => res.status(500).json(err));
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+              });
     },
 }
 
