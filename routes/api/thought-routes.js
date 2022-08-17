@@ -10,8 +10,8 @@ const {
     createReaction
 } = require('../../controllers/thought-controller')
 
-router.
-  route('/')
+router
+  .route('/')
   .get(getThought)
   .post(createThought)
 
